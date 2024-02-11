@@ -1,7 +1,7 @@
 from tkinter import *  # Import all definitions from tkinter
-from components.helpers import MinesweeperStates as States
-from components.helpers import get_high_score, set_high_score, Stopwatch
-from components.CellButton import CellButton
+from .helpers import MinesweeperStates as States
+from .helpers import get_high_score, set_high_score, Stopwatch
+from .CellButton import CellButton
 import random
 from itertools import product
 from functools import reduce
