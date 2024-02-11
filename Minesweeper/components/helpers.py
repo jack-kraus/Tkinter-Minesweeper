@@ -27,23 +27,25 @@ class Stopwatch:
     def get_elapsed_time(self):
         return round(self.__end_time - self.__start_time, 2)
 
-def set_high_score(mode, value):
+def create_high_scores():
     if not os.path.exists("highscores.json"):
         dictionary = {"easy": -1, "medium": -1, "hard": -1}
-    else:
-        with open("highscores.json", 'r') as openfile:
-            dictionary = json.load(openfile)
-    dictionary[mode] = value
-    with open("highscores.json", "w") as outfile:
+        with open("highscores.json", "w") as outfile:
+            json.dump(dictionary, outfile)
+
+def set_high_score(mode, value):
+    create_high_scores()
+    with open("highscores.json", 'r') as openfile:
+        dictionary = json.load(openfile)
+    with open("highscores.json", 'w') as outfile:
+        dictionary[mode] = value
         json.dump(dictionary, outfile)
 
 def get_high_score(mode):
-    if not os.path.exists("highscores.json"):
-        dictionary = { "easy" : -1, "medium": -1, "hard": -1 }
-        with open("highscores.json", "w") as outfile:
-            json.dump(dictionary, outfile)
-        return -1
-    else:
-        with open("highscores.json", 'r') as openfile:
-            json_object = json.load(openfile)
-            return json_object[mode]
+    create_high_scores()
+    with open("highscores.json", 'r') as openfile:
+        json_object = json.load(openfile)
+        return json_object[mode]
+
+def reset_high_score(mode):
+    set_high_score(mode, -1)

@@ -1,4 +1,5 @@
-from tkinter import Button, W
+from tkinter import Button, Label, W, SUNKEN
+from .helpers import get_high_score, set_high_score
 
 class CellButton(Button):
     def __init__(self, frame, hit_event, ir, ic):
@@ -61,3 +62,15 @@ class CellButton(Button):
             case 6: return "teal"
             case 7: return "black"
             case 8: return "gray"
+
+class HighScoreLabel(Label):
+    def __init__(self, frame, mode):
+        super().__init__(frame, relief=SUNKEN, width=10)
+        value = get_high_score(mode)
+        self["text"] = str(value) if value != -1 else "None"
+        self.mode = mode
+        self.bind("<Button 3>", lambda event: self.update_value(-1))
+
+    def update_value(self, value):
+        self["text"] = str(value) if value != -1 else "None"
+        set_high_score(self.mode, value)

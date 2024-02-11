@@ -1,7 +1,7 @@
 from tkinter import *  # Import all definitions from tkinter
 from .helpers import MinesweeperStates as States
 from .helpers import get_high_score, set_high_score, Stopwatch
-from .CellButton import CellButton
+from .Components import CellButton, HighScoreLabel
 import random
 from itertools import product
 from functools import reduce
@@ -154,15 +154,14 @@ class ModeSelect:
         medium.grid(row=1, column=2)
         hard.grid(row=1, column=3)
 
-        Label(frame, text="Highscores", width=10, font="Helvetica 10 bold").grid(row=2, column=2, padx=5, pady=5)
+        Label(frame, text="Highscores", width=12, font="Helvetica 10 bold").grid(row=2, column=2, padx=5, pady=5)
 
-        highscores = [ get_high_score("easy"), get_high_score("medium"), get_high_score("hard") ]
-        easy_label = Label(frame, text=str(highscores[0]) if highscores[0] != -1 else "None", width=10, relief=SUNKEN)
-        medium_label = Label(frame, text=str(highscores[1]) if highscores[1] != -1 else "None", width=10, relief=SUNKEN)
-        hard_label = Label(frame, text=str(highscores[2]) if highscores[2] != -1 else "None", width=10, relief=SUNKEN)
-        easy_label.grid(row=3, column=1)
-        medium_label.grid(row=3, column=2)
-        hard_label.grid(row=3, column=3)
+        # make highscore labels
+        HighScoreLabel(frame, "easy").grid(row=3, column=1)
+        HighScoreLabel(frame, "medium").grid(row=3, column=2)
+        HighScoreLabel(frame, "hard").grid(row=3, column=3)
+
+        Label(self.window, text="(Right click to reset)", font="Helvetica 8 italic").pack(pady=3)
 
         self.window.mainloop()
 
