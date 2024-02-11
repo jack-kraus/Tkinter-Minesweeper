@@ -12,7 +12,7 @@ ifeq ($(OS), Windows_NT)
 	./venv/scripts/python.exe run.py
 else
 	venv/bin/activate
-	./venv/bin/python.exe run.py
+	./venv/bin/python run.py
 endif
 clean:
 	rm -rf __pycache__
