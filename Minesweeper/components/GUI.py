@@ -177,5 +177,3 @@ class ModeSelect:
     def hard(self):
         self.window.destroy()
         Minesweeper(24, 20, 99, "hard")
-
-ModeSelect()
