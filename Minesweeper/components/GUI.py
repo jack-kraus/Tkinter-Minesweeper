@@ -69,7 +69,7 @@ class Minesweeper:
         v_coordinates.remove((r, c)) # remove current item
         return v_coordinates
 
-    def hit_button(self, _, r, c):
+    def hit_button(self, _, r, c, override=False):
         if self.state == States.INACTIVE:
             self.generate_board(r, c)
             self.state = States.ACTIVE
@@ -77,7 +77,7 @@ class Minesweeper:
         elif self.state != States.ACTIVE: return
         button, cell_value = self.buttons[r][c], self.board[r][c]
         # if hit unsuccessful or cell value is not 0, the call is over
-        if not button.hit(cell_value): return
+        if not button.hit(cell_value, override): return
         elif cell_value == -1:
             self.end_game(States.LOST)
             return
@@ -88,7 +88,7 @@ class Minesweeper:
         # else iterate over adjacent tiles
         for adj_cell in self.surrounding(r, c):
             ar, ac = adj_cell
-            self.hit_button(_, ar, ac)  # hit all adjacent buttons
+            self.hit_button(_, ar, ac, True)  # hit all adjacent buttons
 
     # disable all buttons in case of win or loss
     def disable_buttons(self):

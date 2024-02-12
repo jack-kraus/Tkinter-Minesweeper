@@ -4,6 +4,15 @@ This is a small python GUI project of Minesweeper. It uses tkinter as a GUI fram
 
 ## Setup
 
+Download the directory and navigate to it. Make sure you have Python installed, and run the following command to install the dependency:
+
+`pip install -r requirements.txt`
+
+Then simply run `py run.py` for windows or `python3 run.py` for Mac or Linux
+
+## Virtual Environment Setup
+
+If you wish to run the game in a virtual environment, perform the following steps.
 Download the directory and navigate to it. Make sure you have Python installed and are able to execute makefiles on your device. To setup the virtual environment, run:
 
 `make setup`

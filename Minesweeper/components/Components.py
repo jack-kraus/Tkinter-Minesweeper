@@ -17,8 +17,8 @@ class CellButton(Button):
         self["text"] = "*" if self.flagged else "_"
         self["fg"] = "red" if self.flagged else "black"
 
-    def hit(self, value):
-        if self.revealed or self.flagged: return False
+    def hit(self, value, override=False):
+        if self.revealed or (self.flagged and not override): return False
         self.configure(
             text = self.value_string(value),
             fg = self.value_color(value),
