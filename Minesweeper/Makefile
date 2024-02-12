@@ -1,4 +1,5 @@
 setup: requirements.txt
+pip install virtualenv
 ifeq ($(OS), Windows_NT)
 	py -m venv venv
 	./venv/scripts/pip install -r requirements.txt
