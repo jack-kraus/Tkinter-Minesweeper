@@ -107,6 +107,12 @@ class Minesweeper:
             old_score = get_high_score(self.mode)
             if old_score == -1 or new_score < old_score:
                 set_high_score(self.mode, new_score)
+        elif self.state == States.LOST:
+            rows, columns = self.shape
+            for r in range(rows):
+                for c in range(columns):
+                    if self.board[r][c] == -1:
+                        self.buttons[r][c].hit(-1)
 
     def check_win(self):
         # for each row of buttons, convert it to the number of buttons that have been revealed

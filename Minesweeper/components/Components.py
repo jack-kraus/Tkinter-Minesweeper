@@ -22,7 +22,7 @@ class CellButton(Button):
         self.configure(
             text = self.value_string(value),
             fg = self.value_color(value),
-            bg = "light gray",
+            bg = "light gray" if value != -1 else "black",
             font = "Helvetica 9 bold"
         )
         self.revealed = True
@@ -52,7 +52,7 @@ class CellButton(Button):
     @staticmethod
     def value_color(value):
         match value:
-            case -1: return "red"
+            case -1: return "white"
             case 0: return "black"
             case 1: return "blue"
             case 2: return "green"
