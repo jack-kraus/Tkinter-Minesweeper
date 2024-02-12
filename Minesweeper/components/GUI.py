@@ -112,7 +112,7 @@ class Minesweeper:
             for r in range(rows):
                 for c in range(columns):
                     if self.board[r][c] == -1:
-                        self.buttons[r][c].hit(-1)
+                        self.buttons[r][c].hit(-1, override=True)
 
     def check_win(self):
         # for each row of buttons, convert it to the number of buttons that have been revealed
