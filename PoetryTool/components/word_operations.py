@@ -5,7 +5,7 @@ from typing import TypeAlias, Callable
 # convert url to soup object
 def get_soup(url):
     content = requests.get(url=url).content
-    return BeautifulSoup(content, features="lxml")
+    return BeautifulSoup(content, "html.parser")
 
 # get a list of rhymes for a particular word from rhymezone.com
 def get_rhymes(word : str) -> set[str]:
