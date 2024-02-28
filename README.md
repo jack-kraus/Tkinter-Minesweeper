@@ -7,3 +7,9 @@ This is a collection of various Python projects I've worked on. I'm currently in
 A simple tkinter GUI Minesweeper game.
 
 Located in: `./Minesweeper`
+
+# Poetry Tool
+
+A command line tool that accepts two words, and finds the collection of words that are synonyms of the two words and rhyme with each other
+
+Located in: `./PoetryTool`
