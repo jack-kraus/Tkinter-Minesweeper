@@ -1,2 +1,3 @@
-
-Minesweeper/highscores.json
+.idea
+highscores.json
+venv/
