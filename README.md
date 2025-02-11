@@ -10,21 +10,6 @@ Download the directory and navigate to it. Make sure you have Python installed, 
 
 Then simply run `py run.py` for windows or `python3 run.py` for Mac or Linux
 
-## Virtual Environment Setup
-
-If you wish to run the game in a virtual environment, perform the following steps.
-Download the directory and navigate to it. Make sure you have Python installed and are able to execute makefiles on your device. To setup the virtual environment, run:
-
-`make setup`
-
-To run the code after setting up, run:
-
-`make run` 
-
-To delete the virtual environment (note: this will require running setup again if you want to run)
-
-`make clean`
-
 ## How to play
 
 Start the game by selecting on the three difficulty levels: Easy, Medium, and Hard. Each subsequent level will increase the grid size and number of bombs.
